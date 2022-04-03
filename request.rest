@@ -1,0 +1,55 @@
+POST  http://localhost:3000/userinfo
+Content-Type: application/json
+User-Agent: Zoom-api-Jwt-Request
+
+{
+    "email_address": "jsupsupin@codingdojo.com"
+}
+
+###
+POST http://localhost:3000/meetings
+Content-Type: application/json
+User-Agent: Zoom-api-Jwt-Request
+
+{
+    "email_address": "jsupsupin@codingdojo.com"
+}
+
+###
+POST http://localhost:3000/create_meeting
+Content-Type: application/json
+User-Agent: Zoom-api-Jwt-Request
+
+{
+    "email_address": "jsupsupin@codingdojo.com",
+    "topic": "Sample meeting 123",
+    "type": 1,
+    "timezone": "Asia/Shanghai"
+}
+
+###
+POST http://localhost:3000/participants
+Content-Type: application/json
+User-Agent: Zoom-api-Jwt-Request
+
+{
+    "meeting_id": "xafmRe8QT2GA4TiCBLpvyw=="
+}
+
+###
+POST http://localhost:3000/recordings
+Content-Type: application/json
+User-Agent: Zoom-api-Jwt-Request
+
+{
+    "email_address": "jsupsupin@codingdojo.com"
+}
+
+###
+POST http://localhost:3000/registrants
+Content-Type: application/json
+User-Agent: Zoom-api-Jwt-Request
+
+{
+    "recording_id": "EOYTkts8Q1KZLc/nEoZS3A=="
+}
