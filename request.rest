@@ -42,7 +42,12 @@ Content-Type: application/json
 User-Agent: Zoom-api-Jwt-Request
 
 {
-    "email_address": "jsupsupin@codingdojo.com"
+    "email_address": "jsupsupin@codingdojo.com",
+    "params": {
+        "from": "2022-01-01",
+        "to": "2023-01-01",
+        "page_size": 0
+    }
 }
 
 ###
@@ -51,5 +56,9 @@ Content-Type: application/json
 User-Agent: Zoom-api-Jwt-Request
 
 {
-    "recording_id": "EOYTkts8Q1KZLc/nEoZS3A=="
+    "recording_id": "EOYTkts8Q1KZLc/nEoZS3A==",
+    "params": {
+        "page_number": 1,
+        "page_size": 33
+    }
 }

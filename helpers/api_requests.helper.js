@@ -11,7 +11,7 @@ class APIRequestHelper{
 		this.#res = res;
     }
 
-    fetchAPI = async (url, is_post = false, post_data = {}) => {
+    fetchAPI = async (url, post_data = {}, is_post = false) => {
         let response_data = { status: false, result: {}, error: null };
 
         try {
@@ -20,11 +20,12 @@ class APIRequestHelper{
             const token = jwt.sign(payload, API_SECRET);
             const config = {
                 method: (is_post) ? "post" : "get",
-                data: post_data,
+                data: { ...post_data },
+                params: { ...post_data },
                 url,
                 headers: { Authorization: `Bearer ${token}` }
             };
-
+            console.log(config)
             /* Make API requests with Axios. */
             let { data } = await axios(config);
 

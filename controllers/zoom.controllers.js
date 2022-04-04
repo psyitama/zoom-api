@@ -38,7 +38,7 @@ class ZoomController{
 
             if(email_address){
                 let apiRequestsHelper = new APIRequestsHelper(this.#req);
-                response_data = await apiRequestsHelper.fetchAPI(`https://api.zoom.us/v2/users/${email_address}/meetings`, true, this.#req.body);
+                response_data = await apiRequestsHelper.fetchAPI(`https://api.zoom.us/v2/users/${email_address}/meetings`, this.#req.body, true);
             }
             else{
                 response_data.error = "Email address is missing";
@@ -97,11 +97,11 @@ class ZoomController{
         let response_data = { status: false, result: {}, error: null };
 
         try{
-            let { email_address } = this.#req.body;
+            let { email_address, params } = this.#req.body;
 
             if(email_address){
                 let apiRequestsHelper = new APIRequestsHelper(this.#req);
-                response_data = await apiRequestsHelper.fetchAPI(`https://api.zoom.us/v2/users/${email_address}/recordings/?from=2021-01-30`);
+                response_data = await apiRequestsHelper.fetchAPI(`https://api.zoom.us/v2/users/${email_address}/recordings/?`, params);
             }
             else{
                 response_data.error = "Email address is missing";
@@ -118,11 +118,11 @@ class ZoomController{
         let response_data = { status: false, result: {}, error: null };
 
         try{
-            let { recording_id } = this.#req.body;
+            let { recording_id, params } = this.#req.body;
 
             if(recording_id){
                 let apiRequestsHelper = new APIRequestsHelper(this.#req);
-                response_data = await apiRequestsHelper.fetchAPI(`https://api.zoom.us/v2/meetings/${recording_id}/recordings/registrants`);
+                response_data = await apiRequestsHelper.fetchAPI(`https://api.zoom.us/v2/meetings/${recording_id}/recordings/registrants`, params);
             }
             else{
                 response_data.error = "Recording id is missing";
