@@ -18,7 +18,7 @@ class ZoomControllers{
     */
     constructor(req = undefined, res = undefined){
         this.#req = req;
-		this.#res = res;
+        this.#res = res;
     }
 
     /**
