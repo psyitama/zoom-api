@@ -25,7 +25,7 @@ class APIRequestHelper{
                 url,
                 headers: { Authorization: `Bearer ${token}` }
             };
-            console.log(config)
+
             /* Make API requests with Axios. */
             let { data } = await axios(config);
 
