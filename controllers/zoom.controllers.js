@@ -168,7 +168,7 @@ class ZoomControllers{
 
             if(email_address){
                 let apiRequestsHelper = new APIRequestsHelper(this.#req);
-                response_data = await apiRequestsHelper.fetchAPI(`https://api.zoom.us/v2/users/${email_address}/recordings/?`, params);
+                response_data = await apiRequestsHelper.fetchAPI(`https://api.zoom.us/v2/users/${email_address}/recordings`, params);
             }
             else{
                 response_data.error = "Email address is missing";

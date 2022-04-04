@@ -48,7 +48,7 @@ User-Agent: Zoom-api-Jwt-Request
     "params": {
         "from": "2022-01-01",
         "to": "2023-01-01",
-        "page_size": 1
+        "page_size": 30
     }
 }
 
