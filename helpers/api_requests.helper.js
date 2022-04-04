@@ -3,14 +3,24 @@ const jwt = require("jsonwebtoken");
 const { API_KEY, API_SECRET } = process.env;
 
 class APIRequestHelper{
-    #req;
-    #res;
+    /**
+    * Default constructor.
+    */
+    constructor(){ }
 
-    constructor(req = undefined, res = undefined){
-        this.#req = req;
-		this.#res = res;
-    }
-
+    /**
+    * DOCU: This method is used to send asynchronous HTTP requests to an API endpoint. <br>
+    * Triggered: request.rest <br>
+    * Last Updated Date: April 4, 2022
+    * @async
+    * @function
+    * @memberOf APIRequestHelper
+    * @param {string} url - API endpoint
+    * @param {object} post_data - { params } or { data }
+    * @param {boolean} is_post - idenfy the method of request if get or post
+    * @returns {object} response_data = { status: true, result: data, error: null }
+    * @author Psyrone
+    */
     fetchAPI = async (url, post_data = {}, is_post = false) => {
         let response_data = { status: false, result: {}, error: null };
 
