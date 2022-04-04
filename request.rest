@@ -22,9 +22,11 @@ User-Agent: Zoom-api-Jwt-Request
 
 {
     "email_address": "jsupsupin@codingdojo.com",
-    "topic": "Sample meeting 123",
-    "type": 1,
-    "timezone": "Asia/Shanghai"
+    "post_data": {
+        "topic": "Sample meeting 123",
+        "type": 1,
+        "timezone": "Asia/Shanghai"
+    }
 }
 
 ###
@@ -46,7 +48,7 @@ User-Agent: Zoom-api-Jwt-Request
     "params": {
         "from": "2022-01-01",
         "to": "2023-01-01",
-        "page_size": 0
+        "page_size": 1
     }
 }
 
