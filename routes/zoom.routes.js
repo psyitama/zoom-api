@@ -1,16 +1,16 @@
 const Express = require("express");
-const ZoomRoute = Express.Router();
-const ZoomController = require("../controllers/zoom.controller");
+const ZoomRoutes = Express.Router();
+const ZoomController = require("../controllers/zoom.controllers");
 
-ZoomRoute.post("/userinfo", (req, res) => { new ZoomController(req, res).getUserInfo(); });
-ZoomRoute.post("/create_meeting", (req, res) => { new ZoomController(req, res).createMeeting(); });
-ZoomRoute.post("/meetings", (req, res) => { new ZoomController(req, res).getMeetings(); });
-ZoomRoute.post("/participants", (req, res) => { new ZoomController(req, res).getMeetingParticipants(); });
-ZoomRoute.post("/recordings", (req, res) => { new ZoomController(req, res).getRecordings(); });
-ZoomRoute.post("/registrants", (req, res) => { new ZoomController(req, res).getRecordingRegistrants(); });
+ZoomRoutes.post("/userinfo", (req, res) => { new ZoomController(req, res).getUserInfo(); });
+ZoomRoutes.post("/create_meeting", (req, res) => { new ZoomController(req, res).createMeeting(); });
+ZoomRoutes.post("/meetings", (req, res) => { new ZoomController(req, res).getMeetings(); });
+ZoomRoutes.post("/participants", (req, res) => { new ZoomController(req, res).getMeetingParticipants(); });
+ZoomRoutes.post("/recordings", (req, res) => { new ZoomController(req, res).getRecordings(); });
+ZoomRoutes.post("/registrants", (req, res) => { new ZoomController(req, res).getRecordingRegistrants(); });
 
-ZoomRoute.options("*", function(req, res, next){
+ZoomRoutes.options("*", function(req, res, next){
 	next();
 });
 
-module.exports = ZoomRoute;
+module.exports = ZoomRoutes;

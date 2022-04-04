@@ -40,6 +40,9 @@ class ZoomController{
                 let apiRequestsHelper = new APIRequestsHelper(this.#req);
                 response_data = await apiRequestsHelper.fetchAPI(`https://api.zoom.us/v2/users/${email_address}/meetings`, true, this.#req.body);
             }
+            else{
+                response_data.error = "Email address is missing";
+            }
         }
         catch(error){
             response_data.error = error;

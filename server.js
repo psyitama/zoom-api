@@ -5,7 +5,7 @@ const { PORT } = process.env;
 const App = Express();
 App.use(Express.json());
 
-const ZoomRoute = require("./routes/zoom.routes");
-App.use("/", ZoomRoute);
+const ZoomRoutes = require("./routes/zoom.routes");
+App.use("/", ZoomRoutes);
 
 App.listen(PORT, () => console.log(`Zoom app listening on port ${PORT}!`));
