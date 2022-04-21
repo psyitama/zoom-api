@@ -212,6 +212,31 @@ class ZoomControllers{
 
         this.#res.json(response_data);
     }
+
+    /**
+    * DOCU: This method is used to subscribe to zoom events webhook <br>
+    * Triggered: request.rest <br>
+    * Last Updated Date: April 21, 2022
+    * @async
+    * @function
+    * @memberOf ZoomControllers
+    * @param {object} this.#req.body - { email_address: params: { payload } }
+    * @returns {object} response_data = { status: true, result: {}, error: null }
+    * @author Psyrone & Cesar
+    */
+    zoomMeetingWebhook = async () => {
+        let response_data = { status: false, result: {}, error: null };
+
+        try{
+            response_data.result = this.#req.body;
+            response_data.status = false;
+        }
+        catch(error){
+            response_data.error = error;
+        }
+
+        this.#res.json(response_data);
+    }
 }
 
 module.exports = ZoomControllers;

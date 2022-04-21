@@ -14,6 +14,7 @@ ZoomRoutes.post("/meetings", (req, res) => { new ZoomControllers(req, res).getMe
 ZoomRoutes.post("/participants", (req, res) => { new ZoomControllers(req, res).getMeetingParticipants(); });
 ZoomRoutes.post("/recordings", (req, res) => { new ZoomControllers(req, res).getRecordings(); });
 ZoomRoutes.post("/registrants", (req, res) => { new ZoomControllers(req, res).getRecordingRegistrants(); });
+ZoomRoutes.post("/zoom_meeting", (req, res) => { new ZoomControllers(req, res).zoomMeetingWebhook(); });
 
 ZoomRoutes.options("*", function(req, res, next){
 	next();
