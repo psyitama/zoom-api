@@ -64,3 +64,19 @@ User-Agent: Zoom-api-Jwt-Request
         "page_size": 33
     }
 }
+
+###
+POST http://localhost:3000/add_registrant
+Content-Type: application/json
+User-Agent: Zoom-api-Jwt-Request
+
+{
+    "meeting_id": "86558754552",
+    "post_data": {
+        "first_name": "Jill",
+        "last_name": "Chill",
+        "email": "replacemewithvalid@email.com",
+        "language": "en-US",
+        "auto_approve": true
+    }
+}

@@ -220,7 +220,7 @@ class ZoomControllers{
     * @async
     * @function
     * @memberOf ZoomControllers
-    * @param {object} this.#req.body - { email_address: params: { payload } }
+    * @param {object} this.#req.body - { payload, event_ts, event }
     * @returns {object} response_data = { status: true, result: {}, error: null }
     * @author Psyrone & Cesar
     */
@@ -229,7 +229,39 @@ class ZoomControllers{
 
         try{
             response_data.result = this.#req.body;
-            response_data.status = false;
+            response_data.status = true;
+        }
+        catch(error){
+            response_data.error = error;
+        }
+
+        this.#res.json(response_data);
+    }
+
+    /**
+    * DOCU: This method is used to add meeting registrants <br>
+    * Triggered: request.rest <br>
+    * Last Updated Date: April 22, 2022
+    * @async
+    * @function
+    * @memberOf ZoomControllers
+    * @param {object} this.#req.body - { meeting_id, post_data: {} }
+    * @returns {object} response_data = { status: true, result: {}, error: null }
+    * @author Psyrone & Cesar
+    */
+    addMeetingRegistrant = async () => {
+        let response_data = { status: false, result: {}, error: null };
+
+        try{
+            let {meeting_id, post_data} = this.#req.body
+            
+            if(meeting_id){
+                let apiRequestsHelper = new APIRequestsHelper(this.#req);
+                response_data = await apiRequestsHelper.fetchAPI(`https://api.zoom.us/v2/meetings/${meeting_id}/registrants`, post_data, true);
+            }
+            else{
+                response_data.error = "Meeting id is missing";
+            }
         }
         catch(error){
             response_data.error = error;
